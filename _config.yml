@@ -1,4 +1,4 @@
-title: Hello, world! I'm Liang
+title: Hello, world!
 description: > # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
@@ -9,12 +9,12 @@ url: "http://liangqiyao.com" # the base hostname & protocol for your site, e.g. 
 site-twitter: #if your site has a twitter account, enter it here
 
 # Author Settings
-author: Liang # add your name
+author: 梁啟耀 # add your name
 author-img: photo.png # add your photo
-about-author: I am a web developer focusing on front-end development. Always hungry to keep learning. # add description
+about-author: 坚持学习✊ # add description
 twitter: # add your Twitter handle
 facebook: # add your Facebook handle
-github: artemsheludko # add your Github handle
+github: liangqiyao  # add your Github handle
 linkedin: # add your Linkedin handle
 email: 513098008@qq.com # add your Email address
 

@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Welcome to Jekyll! - Hello, world! I'm David Freeman</title>
+	<title>Welcome to Jekyll! - Hello, world!</title>
 
   <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
 
-    <meta content="Hello, world! I'm David Freeman" property="og:site_name">
+    <meta content="Hello, world!" property="og:site_name">
   
     <meta content="Welcome to Jekyll!" property="og:title">
   
@@ -24,7 +24,7 @@
     <meta content="http://localhost:4000/about/" property="article:author">
   
   
-    <meta content="/img/david-freeman.jpg" property="og:image">
+    <meta content="/img/photo.png" property="og:image">
   
   
     
@@ -48,7 +48,7 @@
     <meta name="twitter:description" content="You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes.">
   
   
-    <meta name="twitter:image:src" content="http://localhost:4000/assets/img/david-freeman.jpg">
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img/photo.png">
   
 
 	<meta name="description" content="You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes.">
@@ -81,27 +81,18 @@
   <header>
     <div class="about">
       <div class="cover-author-image">
-        <a href="/"><img src="/assets/img/david-freeman.jpg" alt="David Freeman"></a>
+        <a href="/"><img src="/assets/img/photo.png" alt="梁啟耀"></a>
       </div>
-      <div class="author-name">David Freeman</div>
-      <p>I am a web developer focusing on front-end development. Always hungry to keep learning.</p>
+      <div class="author-name">梁啟耀</div>
+      <p>坚持学习✊</p>
     </div>
   </header> <!-- End Header -->
   <footer>
     <section class="contact">
-      <h3 class="contact-title">Contact me</h3>
+      <h3 class="contact-title">联系</h3>
       <ul>
         
-          <li><a href="https://twitter.com/artemsheludko_" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-        
-        
-          <li><a href="https://facebook.com/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-        
-        
-          <li class="github"><a href="http://github.com/artemsheludko" target="_blank"><i class="fa fa-github"></i></a></li>
-        
-        
-          <li class="linkedin"><a href="https://in.linkedin.com/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+          <li class="github"><a href="http://github.com/liangqiyao" target="_blank"><i class="fa fa-github"></i></a></li>
         
         
           <li class="email"><a href="mailto:513098008@qq.com"><i class="fa fa-envelope-o"></i></a></li>
@@ -109,7 +100,7 @@
       </ul>
     </section> <!-- End Section Contact -->
     <div class="copyright">
-      <p>2017 &copy; David Freeman</p>
+      <p>2017 &copy; 梁啟耀</p>
     </div>
   </footer> <!-- End Footer -->
 </aside> <!-- End Sidebar -->
@@ -129,21 +120,178 @@
 
 <p>Jekyll also offers powerful support for code snippets:</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
-<span class="k">end</span>
-<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
-<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-python" data-lang="python">	<span class="c"># -*- coding:UTF-8 -*-</span>
+	<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+	<span class="kn">import</span> <span class="nn">subprocess</span> <span class="k">as</span> <span class="n">sp</span>
+	<span class="kn">from</span> <span class="nn">lxml</span> <span class="kn">import</span> <span class="n">etree</span>
+	<span class="kn">import</span> <span class="nn">requests</span>
+	<span class="kn">import</span> <span class="nn">random</span>
+	<span class="kn">import</span> <span class="nn">re</span>
+	<span class="kn">from</span> <span class="nn">urllib</span> <span class="kn">import</span> <span class="n">request</span>
+	<span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+	<span class="c"># 引入配置对象DesiredCapabilities</span>
+	<span class="kn">from</span> <span class="nn">selenium.webdriver.common.desired_capabilities</span> <span class="kn">import</span> <span class="n">DesiredCapabilities</span>
+	<span class="k">class</span> <span class="nc">proxyPool</span><span class="p">:</span>
+		<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+			<span class="k">pass</span>
+		<span class="c">#获取代理信息</span>
+		<span class="k">def</span> <span class="nf">getProxys</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">page</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+			<span class="n">s</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+			<span class="c">#target_url = 'http://www.xicidaili.com/nn/%d' %page</span>
+			<span class="n">target_url</span> <span class="o">=</span> <span class="s">'http://www.xicidaili.com/wt/</span><span class="si">%</span><span class="s">d'</span> <span class="o">%</span><span class="n">page</span>
+			<span class="n">target_hearders</span> <span class="o">=</span> <span class="p">{</span>
+				<span class="s">'Upgrade-Insecure-Requests'</span><span class="p">:</span><span class="s">'1'</span><span class="p">,</span>
+				<span class="s">'User-Agent'</span><span class="p">:</span><span class="s">'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36'</span><span class="p">,</span>
+				<span class="s">'Accept'</span><span class="p">:</span><span class="s">'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'</span><span class="p">,</span>
+				<span class="s">'Referer'</span><span class="p">:</span><span class="s">'http://www.xicidaili.com/nn/'</span><span class="p">,</span>
+				<span class="s">'Accept-Encoding'</span><span class="p">:</span><span class="s">'gzip, deflate, sdch'</span><span class="p">,</span>
+				<span class="s">'Accept-Language'</span><span class="p">:</span><span class="s">'zh-CN,zh;q=0.8'</span><span class="p">,</span>
+			<span class="p">}</span>
+			<span class="n">target_rsp</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">target_url</span><span class="p">,</span><span class="n">headers</span> <span class="o">=</span> <span class="n">target_hearders</span><span class="p">)</span>
+			<span class="n">target_rsp</span><span class="o">.</span><span class="n">encoding</span> <span class="o">=</span> <span class="s">'utf-8'</span>
+			<span class="n">target_html</span> <span class="o">=</span> <span class="n">target_rsp</span><span class="o">.</span><span class="n">text</span>
+			<span class="n">bf1_ip_list</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">target_html</span><span class="p">,</span><span class="s">'lxml'</span><span class="p">)</span>
+			<span class="n">bf2_ip_list</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">bf1_ip_list</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s">'ip_list'</span><span class="p">)),</span><span class="s">'lxml'</span><span class="p">)</span>
+			<span class="n">ip_list_info</span> <span class="o">=</span> <span class="n">bf2_ip_list</span><span class="o">.</span><span class="n">table</span><span class="o">.</span><span class="n">contents</span>
+			<span class="n">proxys_list</span> <span class="o">=</span> <span class="p">[]</span>
+			<span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ip_list_info</span><span class="p">)):</span>
+				<span class="k">if</span> <span class="n">index</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">index</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+					<span class="n">dom</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">ip_list_info</span><span class="p">[</span><span class="n">index</span><span class="p">]))</span>
+					<span class="n">ip</span> <span class="o">=</span> <span class="n">dom</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s">'//td[2]'</span><span class="p">)</span>
+					<span class="n">port</span> <span class="o">=</span> <span class="n">dom</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s">'//td[3]'</span><span class="p">)</span>
+					<span class="n">protocol</span> <span class="o">=</span> <span class="n">dom</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s">'//td[6]'</span><span class="p">)</span>
+					<span class="n">proxys_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">protocol</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">+</span><span class="s">'#'</span><span class="o">+</span><span class="n">ip</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="o">+</span><span class="s">'#'</span><span class="o">+</span><span class="n">port</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+			<span class="k">return</span> <span class="n">proxys_list</span>
+		<span class="c">#正则规则</span>
+		<span class="k">def</span> <span class="nf">init_pattern</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+			<span class="c">#匹配丢包数</span>
+			<span class="n">lose_time</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">u"(</span><span class="err">\</span><span class="s">d+) packets received"</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+			<span class="c">#匹配平均时间</span>
+			<span class="n">waste_time</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">u"min/avg/max/stddev = (.+?) ms"</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+			<span class="k">return</span> <span class="n">lose_time</span><span class="p">,</span> <span class="n">waste_time</span>
+		<span class="c">#验证代理信息</span>
+		<span class="k">def</span> <span class="nf">checkProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">ip</span><span class="p">,</span><span class="n">lose_time</span><span class="p">,</span><span class="n">waste_time</span><span class="p">):</span>
+			<span class="c">#命令 ping -c 3 -t 3 %s</span>
+			<span class="n">cmd</span> <span class="o">=</span> <span class="s">"ping -c 3 -t 3 </span><span class="si">%</span><span class="s">s"</span>
+			<span class="c">#执行命令</span>
+			<span class="n">p</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">cmd</span><span class="o">%</span><span class="n">ip</span><span class="p">,</span><span class="n">stdin</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span><span class="n">stdout</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span><span class="n">stderr</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span><span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+			<span class="c">#获得返回结果并解码</span>
+			<span class="n">out</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span>
+			<span class="c">#丢包数</span>
+			<span class="n">lose</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="n">lose_time</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">out</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+			<span class="c">#如果丢包数大于2，则认为链接超时，返回平均耗时1000ms</span>
+			<span class="k">if</span> <span class="n">lose</span> <span class="o">&gt;</span><span class="mi">2</span> <span class="p">:</span>
+				<span class="k">return</span> <span class="mi">1000</span>
+			<span class="c">#如果丢包数目小于等于2，获取平均耗时</span>
+			<span class="k">else</span> <span class="p">:</span>
+				<span class="c">#平均时间</span>
+				<span class="n">wts</span> <span class="o">=</span> <span class="n">waste_time</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+				<span class="n">tlis</span> <span class="o">=</span> <span class="n">wts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">'/'</span><span class="p">)</span>
+				<span class="n">average</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">tlis</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+				<span class="k">return</span> <span class="n">average</span>
+		<span class="c">#使用代理访问</span>
+		<span class="k">def</span> <span class="nf">useProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">url</span><span class="p">,</span><span class="n">proxie</span><span class="p">):</span>
+			<span class="n">s</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">session</span><span class="p">()</span>
+			<span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
+			<span class="s">'User-Agent'</span> <span class="p">:</span> <span class="s">'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'</span><span class="p">,</span>
+			<span class="p">}</span>
+			<span class="k">try</span> <span class="p">:</span>
+				<span class="n">response</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">headers</span> <span class="o">=</span> <span class="n">header</span><span class="p">,</span><span class="n">proxies</span> <span class="o">=</span> <span class="n">proxie</span><span class="p">,</span><span class="n">timeout</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+				<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+			<span class="k">except</span> <span class="p">:</span>
+				<span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="si">%</span><span class="s">s 超时'</span> <span class="o">%</span> <span class="n">proxie</span><span class="p">)</span>
+		<span class="c">#保存代理信息</span>
+		<span class="k">def</span> <span class="nf">saveProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">proxys_list</span><span class="p">):</span>
+			<span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'proxyList.txt'</span><span class="p">,</span><span class="s">'w+'</span><span class="p">)</span>
+			<span class="k">for</span> <span class="n">proxy</span> <span class="ow">in</span> <span class="n">proxys_list</span><span class="p">:</span>
+				<span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">proxy</span><span class="o">+</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+			<span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+		<span class="c">#取值</span>
+		<span class="k">def</span> <span class="nf">getProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+			<span class="n">proxyList</span> <span class="o">=</span> <span class="p">[]</span>
+			<span class="n">file_object</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'proxyList.txt'</span><span class="p">)</span>
+			<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file_object</span><span class="p">:</span>
+				<span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+				<span class="n">proxyList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+			<span class="n">proxy</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">proxyList</span><span class="p">)</span>
+			<span class="n">proxyObj</span> <span class="o">=</span> <span class="n">proxy</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">"#"</span><span class="p">)</span>
+			<span class="n">proxie</span> <span class="o">=</span> <span class="p">{}</span>
+			<span class="n">proxie</span><span class="p">[</span><span class="n">proxyObj</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">proxyObj</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="s">':'</span><span class="o">+</span><span class="n">proxyObj</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+			<span class="k">return</span> <span class="n">proxie</span>
+		<span class="c">#更新</span>
+		<span class="k">def</span> <span class="nf">updateList</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+			<span class="c">#初始化正则表达式</span>
+			<span class="n">lose_time</span><span class="p">,</span><span class="n">waste_time</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_pattern</span><span class="p">()</span>
+			<span class="c">#获取代理</span>
+			<span class="n">proxys_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getProxys</span><span class="p">()</span>
+			<span class="c">#如果平均时间超过200ms重新选择IP</span>
+			<span class="k">for</span> <span class="n">proxy</span> <span class="ow">in</span> <span class="n">proxys_list</span><span class="p">:</span>
+				<span class="n">split_proxy</span> <span class="o">=</span> <span class="n">proxy</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">"#"</span><span class="p">)</span>
+				<span class="c">#获取IP</span>
+				<span class="n">ip</span> <span class="o">=</span> <span class="n">split_proxy</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+				<span class="c">#检查IP</span>
+				<span class="n">average_time</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">checkProxy</span><span class="p">(</span><span class="n">ip</span><span class="p">,</span><span class="n">lose_time</span><span class="p">,</span><span class="n">waste_time</span><span class="p">)</span>
+				<span class="k">if</span> <span class="n">average_time</span> <span class="o">&gt;</span> <span class="mi">200</span> <span class="p">:</span>
+					<span class="c">#去掉</span>
+					<span class="n">proxys_list</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">proxy</span><span class="p">)</span>
+					<span class="k">print</span><span class="p">(</span><span class="s">'ip超时 '</span><span class="p">)</span>
+				<span class="k">else</span> <span class="p">:</span>
+					<span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="si">%</span><span class="s">s 可用 </span><span class="se">\n</span><span class="s">'</span> <span class="o">%</span> <span class="n">proxy</span><span class="p">)</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">saveProxy</span><span class="p">(</span><span class="n">proxys_list</span><span class="p">)</span>
+		<span class="c">#使用phanthomjs</span>
+		<span class="k">def</span> <span class="nf">userPhan</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span><span class="n">url</span><span class="p">):</span>
+			<span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">PhantomJS</span><span class="p">(</span><span class="n">executable_path</span><span class="o">=</span><span class="s">'/Users/liangqiyao/Downloads/python34/phantomjs-2.1.1-macosx/bin/phantomjs'</span><span class="p">)</span>
+			<span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+			<span class="n">driver</span><span class="o">.</span><span class="n">implicitly_wait</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+			<span class="k">print</span><span class="p">(</span><span class="n">driver</span><span class="o">.</span><span class="n">get_cookies</span><span class="p">())</span>
+		<span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">proxyd</span><span class="p">):</span>
+			<span class="c"># browser = webdriver.Chrome()</span>
+			<span class="c"># browser.get('http://xyq.cbg.163.com/')</span>
+			<span class="c">#phantomjs_driver_path='/Users/liangqiyao/Downloads/python34/phantomjs-2.1.1-macosx/bin/phantomjs'</span>
+			<span class="n">dcap</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">DesiredCapabilities</span><span class="o">.</span><span class="n">PHANTOMJS</span><span class="p">)</span>
+			<span class="c">#从USER_AGENTS列表中随机选一个浏览器头，伪装浏览器</span>
+			<span class="n">dcap</span><span class="p">[</span><span class="s">"phantomjs.page.settings.userAgent"</span><span class="p">]</span> <span class="o">=</span> <span class="s">'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'</span>
+			<span class="c"># 不载入图片，爬页面速度会快很多</span>
+			<span class="n">dcap</span><span class="p">[</span><span class="s">"phantomjs.page.settings.loadImages"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+			<span class="c"># 设置代理</span>
+			<span class="n">service_args</span> <span class="o">=</span> <span class="p">[</span><span class="s">'--proxy=</span><span class="si">%</span><span class="s">s'</span><span class="o">%</span><span class="n">proxyd</span><span class="p">[</span><span class="s">'http'</span><span class="p">],</span><span class="s">'--proxy-type=socks5'</span><span class="p">]</span>
+			<span class="k">print</span><span class="p">(</span><span class="n">service_args</span><span class="p">)</span>
+			<span class="c">#打开带配置信息的phantomJS浏览器</span>
+			<span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">(</span><span class="n">desired_capabilities</span><span class="o">=</span><span class="n">dcap</span><span class="p">,</span><span class="n">service_args</span><span class="o">=</span><span class="n">service_args</span><span class="p">)</span>
+			<span class="c"># 隐式等待5秒，可以自己调节</span>
+			<span class="n">driver</span><span class="o">.</span><span class="n">implicitly_wait</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+			<span class="c"># 设置10秒页面超时返回，类似于requests.get()的timeout选项，driver.get()没有timeout选项</span>
+			<span class="c"># 以前遇到过driver.get(url)一直不返回，但也不报错的问题，这时程序会卡住，设置超时选项能解决这个问题。</span>
+			<span class="n">driver</span><span class="o">.</span><span class="n">set_page_load_timeout</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+			<span class="c"># 设置10秒脚本超时时间</span>
+			<span class="n">driver</span><span class="o">.</span><span class="n">set_script_timeout</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+			<span class="c"># driver.get('http://ip.cip.cc/')</span>
+			<span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'http://xyq.cbg.163.com/'</span><span class="p">)</span>
+			<span class="k">print</span><span class="p">(</span><span class="n">driver</span><span class="o">.</span><span class="n">get_cookies</span><span class="p">())</span>
+			<span class="k">print</span><span class="p">(</span><span class="n">driver</span><span class="o">.</span><span class="n">page_source</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+		<span class="n">ppool</span> <span class="o">=</span> <span class="n">proxyPool</span><span class="p">()</span>
+		<span class="c">#刷新代理信息</span>
+		<span class="c"># ppool.updateList()</span>
+		<span class="c">#使用代理</span>
+		<span class="n">proxy</span> <span class="o">=</span> <span class="n">ppool</span><span class="o">.</span><span class="n">getProxy</span><span class="p">()</span>
+		<span class="n">ppool</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="n">proxy</span><span class="p">)</span>
+		<span class="c"># #url = 'http://ip.cip.cc/'</span>
+		<span class="c"># url = 'http://xyq.cbg.163.com/'</span>
+		<span class="c"># ppool.useProxy(url,proxy)</span></code></pre></figure>
 
 <p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>
 
 
       <div class="page-footer">
+        <!-- 分享模块 -->
+        <!-- 
         <div class="page-share">
           <a href="https://twitter.com/intent/tweet?text=Welcome to Jekyll!&url=http://localhost:4000/welcome-to-jekyll/" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
           <a href="https://facebook.com/sharer.php?u=http://localhost:4000/welcome-to-jekyll/" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
           <a href="https://plus.google.com/share?url=http://localhost:4000/welcome-to-jekyll/" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
         </div>
+         -->
         <div class="page-tag">
           
         </div>
