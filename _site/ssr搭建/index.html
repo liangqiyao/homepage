@@ -24,7 +24,7 @@
     <meta content="http://localhost:4000/about/" property="article:author">
   
   
-    <meta content="http://localhost:4000/assets/img/sst-title.png" property="og:image">
+    <meta content="/img/photo.png" property="og:image">
   
   
     
@@ -50,7 +50,7 @@
     <meta name="twitter:description" content="ssr安装配置">
   
   
-    <meta name="twitter:image:src" content="http://localhost:4000/assets/img/sst-title.png">
+    <meta name="twitter:image:src" content="http://localhost:4000/assets/img/photo.png">
   
 
 	<meta name="description" content="ssr安装配置">
@@ -110,18 +110,13 @@
   <article class="article-page">
   <div class="page-content">
     
-    <div class="page-cover-image">
-      <img class="page-image" src=/assets/img/sst-title.png alt="搭建一个ssr">
-    </div> <!-- End Page Cover Image -->
     
     <div class="wrap-content">
       <header class="header-page">
         <h1 class="page-title">搭建一个ssr</h1>
         <div class="page-date"><span>2017, Nov 20&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
       </header>
-      <p>ssr安装配置</p>
-
-<h2 id="购买服务器">购买服务器</h2>
+      <h2 id="购买服务器">购买服务器</h2>
 
 <ul>
   <li>1、登录<a href="https://www.vultr.com/?ref=7250193">vultr</a>，注册一个账号。</li>
@@ -139,17 +134,17 @@
   <li>window用户可以通过ssh进入服务器。</li>
 </ul>
 
+<hr />
+
 <h2 id="ssr环境">ssr环境</h2>
 
 <h3 id="一键安装命令">一键安装命令：</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh &amp;&amp; chmod +x ssr.sh &amp;&amp; bash ssr.sh
-</code></pre></div></div>
+<p><code class="highlighter-rouge">wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh &amp;&amp; chmod +x ssr.sh &amp;&amp; bash ssr.sh</code></p>
 
 <h3 id="控制命令">控制命令：</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash ssr.sh
-</code></pre></div></div>
+<p><code class="highlighter-rouge">bash ssr.sh</code></p>
 
 <h3 id="ssr系统控制命令">ssr系统控制命令：</h3>
 
@@ -159,6 +154,8 @@
   <li>重启 ShadowsocksR：<code class="highlighter-rouge">service ssr restart</code></li>
   <li>查看 ShadowsocksR状态：<code class="highlighter-rouge">service ssr status</code></li>
 </ul>
+
+<hr />
 
 <h2 id="ssr客户端安装">ssr客户端安装</h2>
 
